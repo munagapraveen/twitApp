@@ -18,6 +18,8 @@ This project was generated with the [Angular Full-Stack Generator](https://githu
 
 2. Run `bower install` to install front-end dependencies.
 
+3. Make sure Ruby is installed for SASS (http://sass-lang.com/install) & 'grunt' is installed globally
+
 3. Run `grunt serve` to start the development server. It should automatically open the client in your browser when ready.
 
 ## Build & development
@@ -27,3 +29,8 @@ Run `grunt build` for building and `grunt serve` for preview.
 ## Testing
 
 Running `npm test` will run the unit tests with karma.
+
+
+#NodeJS-Twitter OAuth configuration
+1) Goto https://apps.twitter.com, create an app (if not), go to 'Keys and Access Tokens' tab
+2) Copy those keys are paste them in server/config/environment/index.js file

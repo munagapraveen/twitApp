@@ -36,9 +36,18 @@ angular.module('twitApp')
             var deferred = $q.defer();
 
             $http.get('/trends/getTrendsForWOEID', {params: {'id':woeid}})
-            .success(function(body){
-                    //console.log(body);
-                    deferred.resolve(body);
+            .success(function(data){
+                    console.log(data);
+
+                    //Current trends are returned in (first object of) array
+                    if(data.length > 0){
+                        deferred.resolve(data[0].trends);
+                    }
+                    else{
+                        console.log('Unable to load Trends for @ getTrendsForWOEID(trends.service.js): '+ error);
+                        deferred.reject('Unable to load Trends for '+woeid);
+                    }
+                    
             })
             .error(function(error){
                 console.log('Error @ getTrendsForWOEID(trends.service.js): '+ error);

@@ -1,6 +1,13 @@
 <div class="row trendItem">
-  <div class="col-md-4">{{trend.name}}</div>
-  <div class="col-md-4">{{trend.country}} ({{trend.countryCode}})</div>
-  <div class="col-md-4">{{trend.woeid}}</div>
+  <div class="col-md-12 pointerCursor">
+    <div class="col-md-4">{{trendItem.trend.name}}</div>
+    <div class="col-md-4">{{trendItem.trend.country}} ({{trendItem.trend.countryCode}})</div>
+    <div class="col-md-4">{{trendItem.trend.woeid}}</div>
+  </div>
+  <div class="col-md-12" ng-if="trendItem.currentTrends.length > 0">
+    <div class="col-md-2" ng-repeat="currentTrend in trendItem.currentTrends track by $index">
+       <current-trend-item item="currentTrend"></current-trend-item>
+    </div>
+  </div>
 </div>
 

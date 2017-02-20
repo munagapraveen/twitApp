@@ -1,24 +1,28 @@
 angular.module('twitApp')
-  .directive('trendItem', ['trendsService', function(trendsService) {
+  .directive('trendItem', ['trendsService','$timeout', function(trendsService, $timeout) {
     return{
       templateUrl: 'components/trends/trenditem/trend-item.html',
       restrict: 'AE',
-      scope: {
+      scope: {},
+      bindToController : {
         trend: '=',
         loadTrendsForWoeid : '&'
       },
-      controller: function($scope){
-        $scope.currentTrends;
+      controller: function(){
+        this.currentTrends;
       },
+      controllerAs: 'trendItem',
       replace: true,
-      link: function($scope, elem, attr){
+      link: function($scope, elem, attr, $ctrl){
 
           elem.bind('click', function(){
-            var woeid = $scope.$eval(attr.trend).woeid;
+            var woeid = $ctrl.trend.woeid;
             trendsService.getTrendsForWOEID(woeid)
-              .then(function(data){
-                   $scope.currentTrends = data;
-                   console.log('trends count: ' +$scope.currentTrends[0].trends.length);
+              .then(function(currentTrends){
+                   $ctrl.currentTrends = currentTrends;
+                  
+                   console.log('trends count: ' +$ctrl.currentTrends.length);
+                   console.log($ctrl.currentTrends[0].name);
                });
           });
       }

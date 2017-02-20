@@ -17,7 +17,7 @@ angular.module('twitApp', [
            url : '/',
            views: {
                "main@":{
-                 template: 'Welcome Home!!!'
+                 templateUrl : 'app/main/main.html'
                  }
                },
            controller: 'MainController',
