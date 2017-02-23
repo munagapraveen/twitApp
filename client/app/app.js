@@ -29,7 +29,8 @@ angular.module('twitApp', [
            views: {
                "main@":{
                    templateUrl: 'app/trends/availableTrends/availableTrends.html',
-                   controller: 'availableTrendsController'
+                   controller: 'availableTrendsController',
+                   controllerAs: 'aTrendsCtrl'
                  }
                }
        });

@@ -22,7 +22,6 @@ $fa-font-path: "../bower_components/font-awesome/fonts";
 // injector
 @import 'main/main.scss';
 @import 'trends/availableTrends/availableTrends.scss';
-@import '../components/footer/footer.scss';
-@import '../components/trends/trenditem/currentTrendItem.scss';
+@import '../components/trends/currentTrend/currentTrendItem.scss';
 @import '../components/trends/trenditem/trend-item.scss';
 // endinjector

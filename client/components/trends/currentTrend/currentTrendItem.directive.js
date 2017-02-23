@@ -5,7 +5,7 @@ angular.module('twitApp')
             return{
                 restrict: 'AE',
                 require: '^trendItem',
-                templateUrl:'components/trends/trenditem/currentTrendItem.html',
+                templateUrl:'components/trends/currentTrend/currentTrendItem.html',
                 scope: {},
                 bindToController:{
                     item : '='

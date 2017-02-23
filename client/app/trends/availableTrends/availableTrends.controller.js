@@ -1,15 +1,16 @@
 'use strict'
 
 angular.module('twitApp')
-    .controller('availableTrendsController', ['$scope','trendsService', function($scope, trendsService){
+    .controller('availableTrendsController', ['trendsService', function(trendsService){
 
+        var vm = this;
+                
         trendsService.getAllAvailableTrends().then(function(body){           
-            $scope.availableTrends = body;
+            vm.availableTrends = body;            
         });
 
-        $scope.loadTrendsonWOEID = function(trend){
-          console.log(trend);
+        vm.loadTrendsonWOEID = function(trend){          
           trendsService.getTrendsForWOEID(trend.woeid);
-        }
+        }        
               
     }]);
